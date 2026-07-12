@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: finance-tracker-backend
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/finance_tracker?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: Avjot@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+
+app:
+  jwt:
+    # 256-bit base64-encoded secret key for signing JWTs
+    secret: dGhpc2lzYW51c2Vkc2VjcmV0a2V5Zm9ydGVzdGluZ3VzZW9ubHlzaG91bGRiZXJlcGxhY2Vkd2l0aGFzZWN1cmVvbmU=
+    # 1 hour in milliseconds (3600000)
+    expirationMs: 3600000
+    # 7 days in milliseconds (604800000)
+    refreshExpirationMs: 604800000

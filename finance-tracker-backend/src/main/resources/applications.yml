@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: Finance Tracker Backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/finance_tracker?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: avjot@123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+jwt:
+  secret: 6A4A7D7EF6A93C4D6D0F5B8A0E9D8C6F5A4B3C2D1E6F7A8B9C0D1E2F3A4B5C6D
+  expiration: 86400000
+
+logging:
+  level:
+    org.springframework.security: INFO
